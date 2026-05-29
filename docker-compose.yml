@@ -8,6 +8,16 @@ services:
     tty: true
     stdin_open: true
 
+  agentic-trading:
+    build: .
+    env_file:
+      - .env
+    command: ["agentic-trading", "run"]
+    volumes:
+      - tradingagents_data:/home/appuser/.tradingagents
+    tty: true
+    stdin_open: true
+
   ollama:
     image: ollama/ollama:latest
     volumes:
